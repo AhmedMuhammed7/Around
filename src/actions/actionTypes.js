@@ -1,0 +1,1 @@
+export  const SET_AUTH_GARD = 'SET_AUTH_GARD'

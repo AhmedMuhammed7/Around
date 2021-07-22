@@ -1,0 +1,63 @@
+//Mixin of Overlay
+@mixin overlay($colorCode, $colorOpacity) {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($colorCode, $colorOpacity);
+  //position:absolute
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == xs {
+    @media  (max-width: $bp-xsmall-end) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == sm {
+    @media (max-width: $bp-small-end) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == md {
+    @media  (max-width: $bp-md-end) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (max-width: $bp-large-end) {
+      @content;
+    }
+  }
+  @if $breakpoint == xl {
+    @media (max-width: $bp-xlarge-end) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == xxl {
+    @media (min-width: $bp-xxlarge-start) {
+      @content;
+    }
+  }
+}
+
+@mixin box($dim) {
+  width: $dim;
+  height: $dim;
+}
+@mixin circle($dim) {
+  width: $dim;
+  height: $dim;
+  border-radius: $border-circle;
+}
+@mixin color-hover($background, $font-color) {
+  &:hover {
+    background-color: $background;
+    color: $font-color;
+    border: $border-width solid $background;
+  }
+}
+
