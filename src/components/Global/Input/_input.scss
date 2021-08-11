@@ -1,0 +1,59 @@
+.user-input {
+  label {
+    font : {
+      weight: 500;
+      size: 14px;
+    }
+    color: $color-text-3;
+  }
+  input {
+    border-radius: 11px;
+    color: $color-text-1 !important;
+    &:focus {
+      box-shadow: 0 0 0 0 transparent;
+      border-color: rgba($color-brand-purple, 0.4);
+    }
+    &[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      -webkit-appearance: none;
+      background-color: rgba($color-text-1, 0.3);
+      border: 0;
+      border-radius: 3px;
+      position: relative;
+      border-radius: 5px;
+      &:checked:after {
+        border-radius: 5px;
+        top: 0;
+        width: 15px;
+        height: 15px;
+        content: "\2714";
+        background-color: $color-brand-purple;
+        position: absolute;
+        font-size: 10px;
+        text-align: center;
+        color: $color-white;
+        font-weight: bold;
+        left: 0;
+      }
+    }
+  }
+  .secondary-field {
+    input {
+      padding: 10px 40px;
+      &::placeholder {
+        font-weight: 500;
+        color: rgba($color-text-1, 0.7);
+      }
+    }
+    .field-icon {
+      left: 10px;
+      opacity: 0.5;
+    }
+    .password-visibility {
+      right: 20px;
+      background: none;
+      color: $color-text-1;
+    }
+  }
+}

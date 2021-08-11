@@ -1,0 +1,6 @@
+export const isNameCategory = (category) => category === 'name'
+export const isEmailCategory = (category) => category === 'email'
+export const isPasswordCategory = (category) => category === 'password'
+export const isConfirmPasswordCategory = (category) => category === 'confirm-password'
+export const isPhoneCategory = (category) => category === 'phone'
+export const isUnCategorized = (category) => category === 'un-categorized'

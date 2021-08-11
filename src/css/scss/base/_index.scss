@@ -1,0 +1,105 @@
+* {
+  &::selection {
+    background-color:rgba($color-brand-purple,.2)
+  }
+}
+body {
+  padding-top: $navbar-height;
+  min-height: 800px;
+  font-family: 'Inter';
+}
+
+.disabled {
+  opacity: .3;
+}
+
+.color-text-1 {
+  color: $color-text-1 !important;
+}
+.color-text-2 {
+  color: $color-text-2 !important;
+}
+.color-text-3 {
+  color: $color-text-3 !important;
+}
+.color-text-4 {
+  color: $color-text-4 !important;
+}
+
+nav {
+  height: $navbar-height !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px -5px $color-black;
+  z-index: 2000 !important;
+  background-color:$color-white !important;
+  .logo {
+    img {
+      width: 70px;
+      height: 65px;
+    }
+    span {
+      font-weight: 500;
+      color: $color-brand-dark;
+      font-size: 28px;
+      @include responsive(sm) {
+        display: none;
+      }
+    }
+  }
+}
+
+@include responsive(xl) {
+  @each $head, $size in (h1, $font-size-h1-xl), (h2, $font-size-h2-xl),
+    (h3, $font-size-h3-xl), (h4, $font-size-h4-xl), (h5, $font-size-h5-xl),
+    (h6, $font-size-h6-xl)
+  {
+    #{$head} {
+      font-size: $size;
+    }
+  }
+}
+
+@include responsive(lg) {
+  @each $head, $size in (h1, $font-size-h1-lg), (h2, $font-size-h2-lg),
+    (h3, $font-size-h3-lg), (h4, $font-size-h4-lg), (h5, $font-size-h5-lg),
+    (h6, $font-size-h6-lg)
+  {
+    #{$head} {
+      font-size: $size;
+    }
+  }
+}
+
+@include responsive(md) {
+  @each $head, $size in (h1, $font-size-h1-md), (h2, $font-size-h2-md),
+    (h3, $font-size-h3-md), (h4, $font-size-h4-md), (h5, $font-size-h5-md),
+    (h6, $font-size-h6-md)
+  {
+    #{$head} {
+      font-size: $size;
+    }
+  }
+}
+
+@include responsive(sm) {
+  @each $head, $size in (h1, $font-size-h1-sm), (h2, $font-size-h2-sm),
+    (h3, $font-size-h3-sm), (h4, $font-size-h4-sm), (h5, $font-size-h5-sm),
+    (h6, $font-size-h6-sm)
+  {
+    #{$head} {
+      font-size: $size;
+    }
+  }
+}
+@include responsive(xs) {
+  @each $head, $size in (h1, $font-size-h1-xs), (h2, $font-size-h2-xs),
+    (h3, $font-size-h3-xs), (h4, $font-size-h4-xs), (h5, $font-size-h5-xs),
+    (h6, $font-size-h6-xs)
+  {
+    #{$head} {
+      font-size: $size;
+    }
+  }
+}

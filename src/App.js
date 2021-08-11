@@ -1,14 +1,21 @@
-import React from 'react'
+/*eslint-disable */
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { decodedToken as token } from './utils/token'
+import { user, isTokenNotExpired, decodedToken as token } from './utils/token'
+import { setAuthGard } from './actions/authGard'
+import { refreshToken } from './actions/authentication'
 import UnAuthenticated from './views/UnAuthenticated/UnAuthenticated'
 import AuthenticatedUser from './views/AuthenticatedUser/AuthenticatedUser'
 import AuthenticatedAdmin from './views/AuthenticatedAdmin/AuthenticatedAdmin'
 
-const App = ({ authenticated }) => {
+const App = ({ authenticated, setAuthGard, refreshToken }) => {
+  useEffect(() => {
+    if (token) setAuthGard(isTokenNotExpired(token.exp * 1000))
+  }, [authenticated, refreshToken, setAuthGard])
+
   return authenticated ? (
-    token.admin ? (
+    user?.IsAdmin ? (
       <AuthenticatedAdmin />
     ) : (
       <AuthenticatedUser />
@@ -22,6 +29,8 @@ const mapStateToProps = (state) => ({ authenticated: state.authGard })
 
 App.propTypes = {
   authenticated: PropTypes.bool.isRequired,
+  setAuthGard: PropTypes.func.isRequired,
+  refreshToken: PropTypes.func.isRequired,
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, { setAuthGard, refreshToken })(App)

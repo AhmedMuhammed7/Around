@@ -4,9 +4,11 @@ import reducers from '../reducers/index'
 import middleware from './middleware'
 
 const initialState = {
-  authGard : false,
+  authGard: false,
+  users: [],
   loading: {},
   errors: {},
+  redirect : ''
 }
 
 const store = createStore(

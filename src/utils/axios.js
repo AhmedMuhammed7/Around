@@ -1,16 +1,13 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
 
-import { decodedToken as token } from './token'
+import { accessToken as token } from './token'
 
 const options = token
   ? {
-    baseURL: 'http://localhost:4000/api/',
-    headers: { 'auth-token': Cookies.getJSON('token') },
+    headers: { Authoriztion: 'Bearer ' + token },
+    baseURL: 'http://127.0.0.1:8000/api/',
   }
-  : {
-    baseURL: 'http://localhost:4000/api/',
-  }
+  : { baseURL: 'http://127.0.0.1:8000/api/' }
 
-const Axios = axios.create(options)
+const Axios = axios.create( options )
 export default Axios

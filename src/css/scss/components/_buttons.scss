@@ -1,0 +1,47 @@
+%btn {
+  border-radius: $border-radius-2;
+  padding: 13px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: $transition-speed;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 15px
+}
+
+.btn-one {
+  @extend %btn;
+  padding: 13px 25px;
+  border-radius: 13px;
+  color: $color-white !important;
+  background-color: $color-purple-2;
+  @include color-hover($color-purple-4, $color-white);
+  border: $border-width solid transparent;
+}
+.btn-two {
+  @extend %btn;
+  border: $border-width solid $color-purple-5;
+  background-color: $color-white;
+  color: $color-purple-2;
+  @include color-hover($color-purple-2, $color-white);
+}
+.btn-light {
+  @extend %btn;
+  color: $color-white;
+  background-color: $color-white-transparent;
+  border: $border-width solid transparent;
+  @include color-hover($color-white, $color-black);
+  font-weight: 500
+}
+
+.btn-tag {
+  @extend %btn;
+  color: $color-text-1;
+  background-color: $color-purple-2;
+  border-radius: $border-radius-1 !important;
+  padding: 0 20px !important;
+  border: $border-width solid transparent;
+  font-size: .9rem !important;
+  font-weight: 500;
+  @include color-hover($color-text-2, $color-text-3);
+}

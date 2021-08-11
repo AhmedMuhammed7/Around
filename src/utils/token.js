@@ -1,4 +1,10 @@
-import jwt_decode from 'jwt-decode'
 import Cookies from 'js-cookie'
-const token = Cookies.getJSON('token')
-export const decodedToken = token ? jwt_decode(token) : false
+import jwt_decode from 'jwt-decode'
+
+
+export const accessToken = Cookies.getJSON('accessToken')
+export const decodedToken = accessToken && jwt_decode(accessToken)
+export const user = Cookies.getJSON('user')
+export const expirseIn = Cookies.getJSON('expiresIn')
+
+export const isTokenNotExpired = (expirseDate) => expirseDate >= Date.now()

@@ -1,0 +1,19 @@
+footer.unauth-footer {
+  height: $unauth-footer-height;
+  p {
+    color: rgba($color-text-1, 0.6);
+  }
+  ul {
+    @include responsive(xs) {
+      width: 100%;
+    }
+    li {
+      a {
+        font-weight: 500;
+        &:hover {
+          color: $color-brand-purple !important;
+        }
+      }
+    }
+  }
+}
