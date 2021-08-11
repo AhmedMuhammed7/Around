@@ -1,17 +1,17 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { Redirect, BrowserRouter as Router } from 'react-router-dom'
+import { Redirect, BrowserRouter as Router,Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { resetRedirect } from '../../actions/redirect'
+import Home from '../Home/Home'
 
-const AuthenticatedUser = ({ redirect, resetRedirect }) => {
-  useEffect(()=> {
-    resetRedirect()
-  },[resetRedirect])
+const AuthenticatedUser = ({ redirect }) => {
   return (
     <Router>
       {redirect && <Redirect to={redirect} />}
-      authenticated user
+      <Switch>
+        <Route exact path="/" component={Home}/>
+      </Switch>
     </Router>
   )
 }
