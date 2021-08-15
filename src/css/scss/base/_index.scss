@@ -1,16 +1,15 @@
 * {
   &::selection {
-    background-color:rgba($color-brand-purple,.2)
+    background-color: rgba($color-brand-purple, 0.2);
   }
 }
 body {
   padding-top: $navbar-height;
-  min-height: 800px;
-  font-family: 'Inter';
+  font-family: "Inter";
 }
 
 .disabled {
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .color-text-1 {
@@ -25,30 +24,23 @@ body {
 .color-text-4 {
   color: $color-text-4 !important;
 }
-
-nav {
-  height: $navbar-height !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 10px -5px $color-black;
-  z-index: 2000 !important;
-  background-color:$color-white !important;
-  .logo {
-    img {
-      width: 70px;
-      height: 65px;
-    }
-    span {
-      font-weight: 500;
-      color: $color-brand-dark;
-      font-size: 28px;
-      @include responsive(sm) {
-        display: none;
-      }
-    }
-  }
+a {
+  text-decoration: none;
 }
+
+ul {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+button,input {
+  background: none !important;
+  border: 0;
+  outline: none !important;
+}
+
+
 
 @include responsive(xl) {
   @each $head, $size in (h1, $font-size-h1-xl), (h2, $font-size-h2-xl),

@@ -13,6 +13,30 @@ export const infoLinks = [
   },
 ]
 
+export const navLinks = [
+  {
+    name: 'home',
+    path: '/',
+  },
+  {
+    name: 'about',
+    path: '/about',
+  },
+  {
+    name: 'products',
+    path: '/products',
+  },
+  {
+    name: 'contact',
+    path: '/contact',
+  },
+  {
+    name: 'page',
+    path: '/page',
+  },
+]
+
+
 export const validationErrors = {
   name: {
     SpecialCharachters: 'Your name can\'t inlucde <,>,/,\\,@,$,#,),(,!,*',
