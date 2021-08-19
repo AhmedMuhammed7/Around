@@ -31,7 +31,7 @@
   background-color: $color-white-transparent;
   border: $border-width solid transparent;
   @include color-hover($color-white, $color-black);
-  font-weight: 500
+  font-weight: 500;
 }
 
 .btn-tag {

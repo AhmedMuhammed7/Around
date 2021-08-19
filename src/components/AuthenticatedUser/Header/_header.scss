@@ -1,0 +1,19 @@
+header.user-header {
+  background-image: linear-gradient(
+    to right,
+    $color-brand-purple 0%,
+    $color-brand-purple 30%,
+    #6a9bf4 100%
+  );
+  height: 600px;
+ 
+  @include responsive(sm) {
+    height: 1100px;
+  }
+  .curved {
+    position: absolute;
+    width: 100%;
+    bottom: 0 !important;
+    z-index: 0 !important;
+  }
+}

@@ -1,25 +1,26 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import PropTypes from 'prop-types'
+import { bool } from 'prop-types'
 import useDocumentTitle from '../../utils/hooks/useDocumentTitle'
-import { resetRedirect } from '../../actions/redirect'
+import Header from '../../components/AuthenticatedUser/Header/Header'
+import Loading from '../../components/Global/Loading/Loading'
 
-const Home = () => {
+const Home = ({ loading }) => {
   useDocumentTitle('Home')
- 
-  return (
-    <div className="container">
-      Home page
-    </div>
+  return loading ? (
+    <Loading />
+  ) : (
+    <>
+      <Header />
+    </>
   )
 }
 
-const mapStateToProps = state => ({redirect : state.redirect})
+const mapStateToProps = state => ({loading : state.loading.GET_PRODUCTS > 0})
 
 Home.propTypes = {
-  redirect: PropTypes.string,
-  resetRedirect: PropTypes.func,
+  loading : bool
 }
 
 
-export default connect(mapStateToProps, { resetRedirect })(Home)
+export default connect(mapStateToProps)(Home)
