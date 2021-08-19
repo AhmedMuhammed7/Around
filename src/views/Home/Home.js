@@ -1,26 +1,18 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import { bool } from 'prop-types'
 import useDocumentTitle from '../../utils/hooks/useDocumentTitle'
 import Header from '../../components/AuthenticatedUser/Header/Header'
-import Loading from '../../components/Global/Loading/Loading'
+import CategoriesSilder from '../../components/AuthenticatedUser/CategoriesSlider/CategoriesSlider'
 
-const Home = ({ loading }) => {
+const Home = () => {
   useDocumentTitle('Home')
-  return loading ? (
-    <Loading />
-  ) : (
+  return (
     <>
       <Header />
+      <CategoriesSilder />
     </>
   )
 }
 
-const mapStateToProps = state => ({loading : state.loading.GET_PRODUCTS > 0})
-
-Home.propTypes = {
-  loading : bool
-}
 
 
-export default connect(mapStateToProps)(Home)
+export default Home

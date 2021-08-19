@@ -1,0 +1,26 @@
+.category-card {
+  background-color: $color-white;
+  border-radius: 18px 18px 0 0;
+  color: $color-text-3;
+  box-shadow: 0 0 10px -7px $color-black;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+  .price-badge {
+    padding: 5px 10px;
+    top: 25px;
+    border-radius: 10px;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    letter-spacing: 1px;
+    color: $color-white;
+  }
+  .image {
+    border-radius: inherit;
+    img {
+      border-radius: inherit;
+      border-bottom-right-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+  }
+  
+}

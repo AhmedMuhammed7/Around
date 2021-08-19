@@ -7,6 +7,7 @@ const initialState = {
   authGard: false,
   users: [],
   products : [],
+  categories : [],
   loading: {},
   errors: {},
   redirect : ''

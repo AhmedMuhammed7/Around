@@ -1,0 +1,30 @@
+.categories-slider {
+    @include responsive(xxl) {
+        margin-top: -100px !important;
+    }
+    @include responsive(xl) {
+        margin-top: -100px !important;
+    }
+     @include responsive(lg) {
+        margin-top: -100px !important;
+    }
+    @include responsive(md) {
+        margin: 0 !important;
+    }
+    .bullets{
+        border: 1px solid blue;
+        .bullet {
+            width: 0;
+            height: 0;
+            border: 3px solid $color-brand-purple;
+            margin: 10px;
+            border-radius: 50%;
+            transition: .1s;
+        }
+        .active {
+            width: 11px;
+            height: 11px;
+            border-width: 2px;
+        }
+    }
+}
