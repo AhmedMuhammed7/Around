@@ -14,7 +14,7 @@
   padding: 13px 25px;
   border-radius: 13px;
   color: $color-white !important;
-  background-color: $color-purple-2;
+  background-color: $color-purple-2 !important;
   @include color-hover($color-purple-4, $color-white);
   border: $border-width solid transparent;
 }
@@ -31,7 +31,7 @@
   background-color: $color-white-transparent;
   border: $border-width solid transparent;
   @include color-hover($color-white, $color-black);
-  font-weight: 500
+  font-weight: 500;
 }
 
 .btn-tag {

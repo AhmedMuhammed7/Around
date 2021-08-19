@@ -6,11 +6,10 @@ export const thunkCreator = (action) => {
     return request
       .then((data) => {
         dispatch({ type: RESOLVED, data })
-        window.location.pathname ='/signin'
         return data
       })
       .catch((error) =>
-        dispatch({ type: REJECTED, error: error.response.data })
+        dispatch({ type: REJECTED, error: error })
       )
   }
 }

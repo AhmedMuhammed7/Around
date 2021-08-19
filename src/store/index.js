@@ -6,6 +6,7 @@ import middleware from './middleware'
 const initialState = {
   authGard: false,
   users: [],
+  products : [],
   loading: {},
   errors: {},
   redirect : ''

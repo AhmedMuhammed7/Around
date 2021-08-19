@@ -37,6 +37,8 @@ export const navLinks = [
 ]
 
 
+export const baseAPIsURL = 'http://127.0.0.1:8000/'
+
 export const validationErrors = {
   name: {
     SpecialCharachters: 'Your name can\'t inlucde <,>,/,\\,@,$,#,),(,!,*',
