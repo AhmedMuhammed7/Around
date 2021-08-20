@@ -1,16 +1,15 @@
-/*eslint-disable */
-import React, { useState } from "react";
-import { arrayOf, objectOf, string } from "prop-types";
-import Logo from "./Logo/Logo";
-import NavLinks from "./NavLinks/NavLinks";
-import { Container, Row, Col } from "react-bootstrap";
-import NavIcons from "./NavIcons/NavIcons";
-import ToggleButton from "./ToggleButton/ToggleButton";
-import SearchBox from "./SearchBox/SearchBox";
+import React, { useState } from 'react'
+import { arrayOf, objectOf, string } from 'prop-types'
+import Logo from './Logo/Logo'
+import NavLinks from './NavLinks/NavLinks'
+import { Container, Row, Col } from 'react-bootstrap'
+import NavIcons from './NavIcons/NavIcons'
+import ToggleButton from './ToggleButton/ToggleButton'
+import SearchBox from './SearchBox/SearchBox'
 
 const Navbar = ({ navLinks, status }) => {
-  const [open, setOpen] = useState(false);
-  const [searchMode, setSearchMode] = useState(false);
+  const [open, setOpen] = useState(false)
+  const [searchMode, setSearchMode] = useState(false)
   const linksList = navLinks && (
     <Col
       md={8}
@@ -24,13 +23,13 @@ const Navbar = ({ navLinks, status }) => {
         setSearchMode={setSearchMode}
       />
     </Col>
-  );
+  )
   const toggleButton = navLinks && (
     <ToggleButton open={open} setOpen={setOpen} />
-  );
+  )
   const navIconsClassName = `align-items-center ${
-    navLinks ? "d-md-flex d-none" : "d-flex"
-  }`;
+    navLinks ? 'd-md-flex d-none' : 'd-flex'
+  }`
 
   const navContent = !searchMode ? (
     <Container className="position-relative">
@@ -52,15 +51,15 @@ const Navbar = ({ navLinks, status }) => {
     </Container>
   ) : (
     <SearchBox setSearchMode={setSearchMode} />
-  );
+  )
 
   return (
     <nav className="fixed-top d-flex align-items-center">{navContent}</nav>
-  );
-};
+  )
+}
 Navbar.propTypes = {
   navLinks: arrayOf(objectOf(string)),
   status: string.isRequired,
-};
+}
 
-export default Navbar;
+export default Navbar
