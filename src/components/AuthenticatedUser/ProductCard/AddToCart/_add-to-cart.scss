@@ -1,0 +1,22 @@
+.add-to-cart {
+  color: $color-brand-purple;
+  position: relative;
+  &::before {
+   opacity: 0;
+    content: "To Cart";
+    text-align: center;
+    color: $color-white;
+    background-color: darken($color-text-3, 10%);
+    font-size: 12px;
+    padding: 5px 0px;
+    border-radius: 5px;
+    position: absolute;
+    width: 53px;
+    top: -29px;
+    left: -12px;
+    transition: $transition-speed;
+  }
+  &:hover::before {
+     opacity: 1;
+  }
+}
