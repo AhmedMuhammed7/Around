@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Star, StarFill } from "react-bootstrap-icons";
 
-const StarsWidget = ({ rate = 3 }) => {
+const StarsWidget = ({ rate }) => {
   const starsList = [1, 2, 3, 4, 5].map((star) =>
     star <= rate ? (
       <StarFill size={13} color="#ffb15c" />

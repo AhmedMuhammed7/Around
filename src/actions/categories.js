@@ -15,5 +15,5 @@ export const getCategories = () =>
       GET_CATEGORIES_SUCCESS,
       GET_PRODUCTS_FAILURE,
     ],
-    request: Axios.get('/categories').then((res) => res.data.payload.data),
+    request: Axios.get('/categories').then((res) => res.data.payload),
   })

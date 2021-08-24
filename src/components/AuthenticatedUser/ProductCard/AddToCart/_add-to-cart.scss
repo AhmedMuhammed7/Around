@@ -3,16 +3,16 @@
   position: relative;
   &::before {
    opacity: 0;
-    content: "To Cart";
+    content: "Cart";
     text-align: center;
     color: $color-white;
     background-color: darken($color-text-3, 10%);
-    font-size: 12px;
+    font-size: 11px;
     padding: 5px 0px;
     border-radius: 5px;
     position: absolute;
     width: 53px;
-    top: -29px;
+    top: -20px;
     left: -12px;
     transition: $transition-speed;
   }

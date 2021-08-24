@@ -5,6 +5,7 @@ import AddToCart from './AddToCart/AddToCart'
 import AddToFavouriteBtn from './AddToFavourite/AddToFavourite'
 import StarsWidget from './StarsWidget/StarsWidget'
 import Badge from './Badge/Badge'
+import { baseAPIsURL } from '../../../utils/constants'
 
 const ProductCard = ({
   name = 'fake name',
@@ -14,14 +15,20 @@ const ProductCard = ({
   status = 'new',
   image = testImage,
 }) => (
-  <div className="product-card position-relative mb-2">
+  <div className="product-card position-relative mb-4">
     {status && <Badge status={status} />}
-    <div className="product-image mb-2">
-      <img src={image} alt="product-image" width="255" height="220" />
+    <div className="product-image mb-4">
+      <img
+        src={image.startsWith('htt') ? image : baseAPIsURL + image}
+        alt="product-image"
+        width="255"
+        height="220"
+        className="w-100"
+      />
     </div>
-    <p className="category-name mb-1">{category}</p>
-    <p className="product-name mb-1">{name}</p>
-    <h6>${price}</h6>
+    <p className="category-name mb-1 color-text-1">{category}</p>
+    <p className="product-name mb-1 color-text-2 px-2">{name}</p>
+    <h6 className="fw-bold color-text-3">${price}</h6>
     <div className="options-bar d-flex justify-content-between align-items-center">
       <StarsWidget rate={rate} />
       <div className="options-box d-flex ">

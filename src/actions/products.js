@@ -5,5 +5,5 @@ import {thunkCreator } from '../utils/actions'
 export const getProducts = () =>
   thunkCreator({
     types: [GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_FAILURE],
-    request : Axios.get('/products').then(res => res.data.payload.data)
+    request : Axios.get('/products').then(res => res.data.payload)
   })

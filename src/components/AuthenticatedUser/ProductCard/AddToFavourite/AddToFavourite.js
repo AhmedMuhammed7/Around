@@ -19,7 +19,7 @@ const AddToFavouriteBtn = () => {
       onClick={handleAdding}
       ref={favouriteBtn}
     >
-      <SuitHeartFill size={20} />
+      <SuitHeartFill size={18} />
     </button>
   )
 }

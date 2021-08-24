@@ -6,7 +6,7 @@ import { arrayOf, object } from 'prop-types'
 
 const CategoriesCarousel = ({categories}) => {
 
-  const categoriesList = categories.map((category) => (
+  const categoriesList = categories.filter((category,index)=> index <3).map((category) => (
     <Col key={category.id} md={4}>
       <CategoryCard name={category.cat_name} price={0} />
     </Col>

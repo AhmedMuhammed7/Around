@@ -6,7 +6,7 @@ const Badge = ({ status }) => {
   const color = useBadgeColor(status)
   return (
     <div
-      className="badge position-absolute start-0 "
+      className="badge position-absolute"
       style={{ backgroundColor: color }}
     >
       {status}
