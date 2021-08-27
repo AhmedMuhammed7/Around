@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import testImage from '../../../assets/product4.jpg'
 import AddToCart from './AddToCart/AddToCart'
 import AddToFavouriteBtn from './AddToFavourite/AddToFavourite'
-import StarsWidget from './StarsWidget/StarsWidget'
+import StarsWidget from '../StarsWidget/StarsWidget'
 import Badge from './Badge/Badge'
 import { baseAPIsURL } from '../../../utils/constants'
 
