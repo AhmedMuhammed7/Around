@@ -5,21 +5,31 @@ import CategoriesSilder from '../../components/AuthenticatedUser/CategoriesSlide
 import ProductsList from '../../components/AuthenticatedUser/ProductsList/ProductsList'
 import { connect } from 'react-redux'
 import { arrayOf, object } from 'prop-types'
-const Home = ({trending}) => {
+import ReviewSlider from '../../components/AuthenticatedUser/ReviewsSlider/ReviewsSlider'
+const Home = ({ trending, reviews }) => {
   useDocumentTitle('Home')
   return (
     <>
       <Header />
       <CategoriesSilder />
-      <ProductsList heading="Trending products" products={trending} link="/products"/>
+      <ProductsList
+        heading="Trending products"
+        products={trending}
+        link="/products"
+      />
+      <ReviewSlider reviews={reviews} />
     </>
   )
 }
 
-const mapStateToProps = state => ({trending : state.products.filter((product) => product.trending).slice(0,8)})
+const mapStateToProps = (state) => ({
+  trending: state.products.filter((product) => product.trending).slice(0, 9),
+  reviews: state.reviews.slice(0, 8),
+})
 
 Home.propTypes = {
-  trending : arrayOf(object)
+  trending: arrayOf(object),
+  reviews : arrayOf(object),
 }
 
 export default connect(mapStateToProps)(Home)

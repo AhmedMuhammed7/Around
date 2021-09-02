@@ -8,6 +8,7 @@ const initialState = {
   users: [],
   products : [],
   categories : [],
+  reviews : [],
   loading: {},
   errors: {},
   redirect : ''

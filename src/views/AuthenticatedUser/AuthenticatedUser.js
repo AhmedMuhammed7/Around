@@ -13,16 +13,19 @@ import { connect } from 'react-redux'
 import { navLinks } from '../../utils/constants'
 import { getProducts } from '../../actions/products'
 import { getCategories } from '../../actions/categories'
+import { getReviews } from '../../actions/reviews'
 const AuthenticatedUser = ({
   redirect,
   loading,
   getProducts,
   getCategories,
+  getReviews,
 }) => {
   useEffect(() => {
     getProducts()
     getCategories()
-  }, [getCategories, getProducts])
+    getReviews()
+  }, [getCategories, getProducts, getReviews])
   return loading ? (
     <Loading />
   ) : (
@@ -38,7 +41,10 @@ const AuthenticatedUser = ({
 
 const mapStateToProps = (state) => ({
   redirect: state.redirect,
-  loading: !!state.loading.GET_PRODUCTS || !!state.loading.GET_CATEGORIES,
+  loading:
+    !!state.loading.GET_PRODUCTS ||
+    !!state.loading.GET_CATEGORIES ||
+    state.loading.GET_CATEGORIES > 0,
 })
 
 AuthenticatedUser.propTypes = {
@@ -46,8 +52,11 @@ AuthenticatedUser.propTypes = {
   loading: bool,
   getProducts: func,
   getCategories: func,
+  getReviews : func
 }
 
-export default connect(mapStateToProps, { getProducts, getCategories })(
-  AuthenticatedUser
-)
+export default connect(mapStateToProps, {
+  getProducts,
+  getCategories,
+  getReviews,
+})(AuthenticatedUser)
