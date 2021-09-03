@@ -1,20 +1,25 @@
 import React from 'react'
 import CategoryCard from './CategoryCard/CategoryCard'
-import { Container, Row, Col } from 'react-bootstrap'
+// import { Container, Row, } from 'react-bootstrap'
+import GlobalSlider from '../../Global/GlobalSlider/GlobalSlider'
 import {connect} from 'react-redux'
 import { arrayOf, object } from 'prop-types'
+import { Container } from 'react-bootstrap'
 
-const CategoriesCarousel = ({categories}) => {
+const CategoriesSlider = ({categories}) => {
 
-  const categoriesList = categories.filter((category,index)=> index <3).map((category) => (
-    <Col key={category.id} md={4}>
+  const categoriesMapping = (category) => (
+    <div key={category.id} className="px-3">
       <CategoryCard name={category.cat_name} price={0} />
-    </Col>
-  ))
+    </div>
+  )
   return (
     <div className="categories-slider">
       <Container>
-        <Row>{categoriesList}</Row>
+        <GlobalSlider
+          elements={categories.slice(0, 9)}
+          elementsMapping={categoriesMapping}
+        />
       </Container>
     </div>
   )
@@ -22,8 +27,8 @@ const CategoriesCarousel = ({categories}) => {
 
 const mapStateToProps = state => ({categories : state.categories})
 
-CategoriesCarousel.propTypes = {
+CategoriesSlider.propTypes = {
   categories: arrayOf(object),
 }
 
-export default connect(mapStateToProps)(CategoriesCarousel)
+export default connect(mapStateToProps)(CategoriesSlider)

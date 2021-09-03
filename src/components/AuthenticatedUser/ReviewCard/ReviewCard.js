@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom'
 import { baseAPIsURL } from '../../../utils/constants'
 
 const ReviewCard = ({
-  reviewerName= 'fake name',
-  review = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem aliquam expedita quas eveniet minus.',
+  reviewerName,
+  review ,
   rate = 0,
   reviewerImae,
   id 
 }) => {
+  const reviewDescription = review.slice(0,120)
   return (
     <div className="review-card px-4 py-4">
       <div className="product-info d-flex flex-wrap align-items-center">
@@ -27,7 +28,7 @@ const ReviewCard = ({
           <StarsWidget rate={rate} />
         </div>
       </div>
-      <p className="review w-100 pb-5 mb-3">{review}</p>
+      <p className="review w-100 mb-3 pb-5">{reviewDescription}</p>
       <div className="reviewer-info d-flex align-items-center">
         <div className="image rounded-circle overflow-hidden">
           <img src={baseAPIsURL + reviewerImae} alt="user" className="w-100 " />
