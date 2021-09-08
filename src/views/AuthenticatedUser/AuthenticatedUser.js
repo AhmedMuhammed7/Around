@@ -14,18 +14,22 @@ import { navLinks } from '../../utils/constants'
 import { getProducts } from '../../actions/products'
 import { getCategories } from '../../actions/categories'
 import { getReviews } from '../../actions/reviews'
+import { getCart } from '../../actions/cart'
+import {user} from '../../utils/token'
 const AuthenticatedUser = ({
   redirect,
   loading,
   getProducts,
   getCategories,
   getReviews,
+  getCart,
 }) => {
   useEffect(() => {
     getProducts()
     getCategories()
     getReviews()
-  }, [getCategories, getProducts, getReviews])
+    getCart(user().id)
+  }, [getCart, getCategories, getProducts, getReviews])
   return loading ? (
     <Loading />
   ) : (
@@ -52,11 +56,13 @@ AuthenticatedUser.propTypes = {
   loading: bool,
   getProducts: func,
   getCategories: func,
-  getReviews : func
+  getReviews: func,
+  getCart: func,
 }
 
 export default connect(mapStateToProps, {
   getProducts,
   getCategories,
   getReviews,
+  getCart,
 })(AuthenticatedUser)

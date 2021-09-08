@@ -1,16 +1,18 @@
 import axios from 'axios'
 import { baseAPIsURL } from './constants'
 
-import { accessToken } from './token'
+// import { accessToken } from './token'
 
 const baseURL = baseAPIsURL + 'api/'
 
-const options = accessToken()
-  ? {
-    headers: { Authoriztion: 'Bearer ' + accessToken() },
-    baseURL,
-  }
-  : { baseURL }
+// const headers = () => accessToken() ? { Authoriztion: 'Bearer ' + accessToken() } : {}
 
-const Axios = axios.create(options)
+// const options = accessToken()
+//   ? {
+//     headers: headers(),
+//     baseURL,
+//   }
+//   : { baseURL }
+
+const Axios = axios.create({ baseURL })
 export default Axios

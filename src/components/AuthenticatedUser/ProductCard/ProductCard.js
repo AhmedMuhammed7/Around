@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import testImage from '../../../assets/product4.jpg'
 import AddToCart from './AddToCart/AddToCart'
 import AddToFavouriteBtn from './AddToFavourite/AddToFavourite'
 import StarsWidget from '../StarsWidget/StarsWidget'
@@ -8,12 +7,13 @@ import Badge from './Badge/Badge'
 import { baseAPIsURL } from '../../../utils/constants'
 
 const ProductCard = ({
-  name = 'fake name',
-  price = 0,
-  category = 'not found',
-  rate = 0,
-  status = 'new',
-  image = testImage,
+  name ,
+  price ,
+  category ,
+  rate ,
+  status ,
+  image ,
+  id
 }) => (
   <div className="product-card position-relative mb-4">
     {status && <Badge status={status} />}
@@ -34,7 +34,7 @@ const ProductCard = ({
       <div className="options-box d-flex ">
         <AddToFavouriteBtn />
         <div className="break"></div>
-        <AddToCart />
+        <AddToCart id={id}/>
       </div>
     </div>
   </div>
