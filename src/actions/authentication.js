@@ -34,9 +34,9 @@ export const signin = (body) => (dispatch) => {
     .then((response) => response.data)
     .then((data) => {
       dispatch({ type: USER_SIGNIN_SUCCESS })
-      Cookies.set('accessToken', data.access_token)
-      Cookies.set('user', data.user)
-      Cookies.set('expiresIn', data.expires_in)
+      const expires = () => (new Date(new Date().getTime() + data.expires_in * 60 * 1000))
+      Cookies.set('accessToken', data.access_token, { expires: expires() })
+      Cookies.set('user', data.user, { expires: expires() })
       dispatch({ type: SET_AUTH_GARD, data: true })
       dispatch({ type: SET_REDIRECT_LINK, path: '/' })
       return data

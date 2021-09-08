@@ -1,13 +1,13 @@
 import axios from 'axios'
 import { baseAPIsURL } from './constants'
 
-import { accessToken as token } from './token'
+import { accessToken } from './token'
 
 const baseURL = baseAPIsURL + 'api/'
 
-const options = token
+const options = accessToken()
   ? {
-    headers: { Authoriztion: 'Bearer ' + token },
+    headers: { Authoriztion: 'Bearer ' + accessToken() },
     baseURL,
   }
   : { baseURL }

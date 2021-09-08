@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { user, isTokenNotExpired, decodedToken as token } from './utils/token'
+import { user, isTokenNotExpired, decodedToken } from './utils/token'
 import { setAuthGard } from './actions/authGard'
 import { refreshToken } from './actions/authentication'
 import UnAuthenticated from './views/UnAuthenticated/UnAuthenticated'
@@ -10,11 +10,11 @@ import AuthenticatedAdmin from './views/AuthenticatedAdmin/AuthenticatedAdmin'
 
 const App = ({ authenticated, setAuthGard, refreshToken }) => {
   useEffect(() => {
-    if (token) setAuthGard(isTokenNotExpired(token.exp * 1000))
+    setAuthGard(isTokenNotExpired(decodedToken()?.exp * 1000))
   }, [authenticated, refreshToken, setAuthGard])
 
   return authenticated ? (
-    user?.IsAdmin ? (
+    user()?.IsAdmin ? (
       <AuthenticatedAdmin />
     ) : (
       <AuthenticatedUser />
