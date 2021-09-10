@@ -15,7 +15,9 @@ import { getProducts } from '../../actions/products'
 import { getCategories } from '../../actions/categories'
 import { getReviews } from '../../actions/reviews'
 import { getCart } from '../../actions/cart'
-import {user} from '../../utils/token'
+import { getColors } from '../../actions/colors'
+import { user } from '../../utils/token'
+import { getSizes } from '../../actions/sizes'
 const AuthenticatedUser = ({
   redirect,
   loading,
@@ -23,13 +25,17 @@ const AuthenticatedUser = ({
   getCategories,
   getReviews,
   getCart,
+  getColors,
+  getSizes,
 }) => {
   useEffect(() => {
     getProducts()
     getCategories()
     getReviews()
+    getColors()
+    getSizes()
     getCart(user().id)
-  }, [getCart, getCategories, getProducts, getReviews])
+  }, [getCart, getCategories, getColors, getProducts, getReviews, getSizes])
   return loading ? (
     <Loading />
   ) : (
@@ -46,9 +52,9 @@ const AuthenticatedUser = ({
 const mapStateToProps = (state) => ({
   redirect: state.redirect,
   loading:
-    !!state.loading.GET_PRODUCTS ||
-    !!state.loading.GET_CATEGORIES ||
-    state.loading.GET_CATEGORIES > 0,
+    state.loading.GET_PRODUCTS > 0 ||
+    state.loading.GET_CATEGORIES > 0 ||
+    state.loading.GET_REVIEWS > 0,
 })
 
 AuthenticatedUser.propTypes = {
@@ -58,6 +64,8 @@ AuthenticatedUser.propTypes = {
   getCategories: func,
   getReviews: func,
   getCart: func,
+  getColors: func,
+  getSizes: func,
 }
 
 export default connect(mapStateToProps, {
@@ -65,4 +73,6 @@ export default connect(mapStateToProps, {
   getCategories,
   getReviews,
   getCart,
+  getColors,
+  getSizes,
 })(AuthenticatedUser)

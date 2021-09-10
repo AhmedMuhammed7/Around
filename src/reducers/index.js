@@ -2,6 +2,8 @@ import { combineReducers } from 'redux'
 import authGard from './authGard'
 import users from './users'
 import products from './products'
+import colors from './colors'
+import sizes from './sizes'
 import cart from './cart'
 import categories from './categories'
 import reviews from './reviews'
@@ -13,6 +15,8 @@ const reducers = combineReducers({
   users,
   products,
   cart,
+  colors,
+  sizes,
   categories,
   reviews,
   loading,

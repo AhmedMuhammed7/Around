@@ -6,13 +6,15 @@ import middleware from './middleware'
 const initialState = {
   authGard: false,
   users: [],
-  products : [],
-  cart : [],
-  categories : [],
-  reviews : [],
+  products: [],
+  colors: [],
+  sizes: [],
+  cart: [],
+  categories: [],
+  reviews: [],
   loading: {},
   errors: {},
-  redirect : ''
+  redirect: '',
 }
 
 const store = createStore(

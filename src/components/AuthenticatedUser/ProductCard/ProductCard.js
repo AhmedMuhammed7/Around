@@ -1,19 +1,22 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import AddToCart from './AddToCart/AddToCart'
+import {string,number, objectOf} from 'prop-types'
+import CartButton from './CartButton/CartButton'
 import AddToFavouriteBtn from './AddToFavourite/AddToFavourite'
 import StarsWidget from '../StarsWidget/StarsWidget'
 import Badge from './Badge/Badge'
 import { baseAPIsURL } from '../../../utils/constants'
 
 const ProductCard = ({
-  name ,
-  price ,
-  category ,
-  rate ,
-  status ,
-  image ,
-  id
+  name,
+  price,
+  category,
+  rate,
+  status,
+  image,
+  id,
+  color,
+  size,
+  isInCart,
 }) => (
   <div className="product-card position-relative mb-4">
     {status && <Badge status={status} />}
@@ -34,20 +37,28 @@ const ProductCard = ({
       <div className="options-box d-flex ">
         <AddToFavouriteBtn />
         <div className="break"></div>
-        <AddToCart id={id}/>
+        <CartButton
+          id={id}
+          size={size?.id}
+          color={color?.id}
+          isInCart={isInCart}
+        />
       </div>
     </div>
   </div>
 )
 
 ProductCard.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
-  price: PropTypes.number,
-  category: PropTypes.string,
-  rate: PropTypes.number,
-  status: PropTypes.string,
-  image: PropTypes.string,
+  id: number,
+  name: string,
+  price: number,
+  category: string,
+  rate: number,
+  status: string,
+  image: string,
+  isInCart : number,
+  color: objectOf(number),
+  size: objectOf(number),
 }
 
 export default ProductCard
