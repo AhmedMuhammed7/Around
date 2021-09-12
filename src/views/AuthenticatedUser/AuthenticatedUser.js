@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { string, func, bool } from 'prop-types'
 import Home from '../Home/Home'
 import Navbar from '../../components/Global/Navbar/Navbar'
+import Cart from '../../components/AuthenticatedUser/Cart/Cart'
 import Loading from '../../components/Global/Loading/Loading'
 import {
   Redirect,
@@ -28,6 +29,8 @@ const AuthenticatedUser = ({
   getColors,
   getSizes,
 }) => {
+  const [cartMode, setCartMode] = useState(true)
+
   useEffect(() => {
     getProducts()
     getCategories()
@@ -41,6 +44,7 @@ const AuthenticatedUser = ({
   ) : (
     <Router>
       {redirect && <Redirect to={redirect} />}
+      <Cart setCartMode={setCartMode} cartMode={cartMode}/>
       <Navbar navLinks={navLinks} status="authenticated" />
       <Switch>
         <Route exact path="/" component={Home} />

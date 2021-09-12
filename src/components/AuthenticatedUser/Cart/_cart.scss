@@ -1,0 +1,15 @@
+$cart-width: 352px;
+.cart {
+  border: 1px solid red;
+  width: $cart-width;
+  z-index: 10000;
+}
+
+@keyframes slideLeft {
+  0% {
+    right: $cart-width * -1;
+  }
+  100% {
+    right: 0;
+  }
+}
