@@ -1,6 +1,6 @@
 import React,{ useState } from 'react'
-import AlertMessage from '../../components/Global/AlertMessage/AlertMessage'
-const useAlert = ({ label, heading, variant }) => {
+import AlertMessage from '../../components/AlertMessage/AlertMessage'
+export const useAlert = ({ label, heading, variant }) => {
   const [show, setShow] = useState(true)
   const alertMessage = show &&(
     <AlertMessage
@@ -14,5 +14,3 @@ const useAlert = ({ label, heading, variant }) => {
   )
   return [alertMessage, setShow]
 }
-
-export default useAlert

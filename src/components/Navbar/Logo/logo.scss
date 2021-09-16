@@ -1,0 +1,15 @@
+@import '../../../css/scss/abstracts/index';
+.logo {
+    img {
+      width: 70px;
+      height: 65px;
+    }
+    span {
+      font-weight: 500;
+      color: $color-brand-dark;
+      font-size: 28px;
+      @include responsive(md) {
+        display: none;
+      }
+    }
+  }

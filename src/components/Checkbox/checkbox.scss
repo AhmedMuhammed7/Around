@@ -1,0 +1,37 @@
+@import '../../css/scss/abstracts/variables';
+.checkbox-group {
+  input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    background-color: rgba($color-text-1, 0.2) !important;
+    border: 0;
+    border-radius: 3px;
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    &:focus {
+      box-shadow: 0 0 0 0 transparent;
+    }
+    &:checked:after {
+      border-radius: 5px;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      line-height: 15px;
+      content: "\2714";
+      background-color: $color-brand-purple;
+      position: absolute;
+      font-size: 9px;
+      text-align: center;
+      color: $color-white;
+      font-weight: bold;
+      left: 0;
+    }
+  }
+  label {
+   font-size: 14px;
+   &::first-letter {
+       text-transform: capitalize;
+   }
+  }
+}

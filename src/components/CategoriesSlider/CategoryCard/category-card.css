@@ -1,0 +1,28 @@
+.category-card {
+  background-color: #fff;
+  border-radius: 18px 18px 0 0;
+  color: #4a4b65;
+  box-shadow: 0 0 10px -7px #000;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+}
+
+.category-card .price-badge {
+  padding: 5px 10px;
+  top: 25px;
+  border-radius: 10px;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.category-card .image {
+  border-radius: inherit;
+}
+
+.category-card .image img {
+  border-radius: inherit;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}

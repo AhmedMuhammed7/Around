@@ -1,0 +1,6 @@
+@import '../../css/scss/abstracts/index';
+.icon-link {
+    &:hover {
+        color: $color-brand-purple !important;
+    }
+}

@@ -1,0 +1,49 @@
+@import '../../css/scss/abstracts/variables';
+.product-card {
+  border: 1px solid rgba($color-text-3, 0.2);
+  padding: 10px;
+  border-radius: 18px;
+  text-align: center;
+  transition: $transition-speed;
+
+  &:hover {
+    border-color: rgba($color-brand-purple, 0.4);
+    box-shadow: 0 0 11px -7px $color-black;
+  }
+  .badge {
+    padding: 4px 7px;
+    font-size: 12px;
+    top: 20px;
+    font-weight: 500;
+    left: -1px;
+    border-radius: 20px;
+    color: $color-white;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    text-transform: capitalize;
+  }
+  .category-name {
+    color: $color-text-2;
+    font-size: 13px;
+  }
+  .product-name {
+    font : {
+      size: 15px !important;
+      weight: 500 !important;
+    }
+  }
+  h6 {
+    color: darken($color-text-3, 10%);
+  }
+  .options-bar {
+    padding: 15px 5px 10px;
+    .options-box {
+      .break {
+        width: 1px;
+        height: 30px;
+        background-color: rgba($color-text-3, 0.2);
+        margin: 0 10px;
+      }
+    }
+  }
+}

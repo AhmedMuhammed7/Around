@@ -1,0 +1,24 @@
+@import '../../css/scss/abstracts/variables';
+.tooltip {
+  opacity: 1 !important;
+  .content {
+  opacity: 0;
+    text-align: center;
+    color: $color-white;
+    background-color: darken($color-text-3, 10%);
+    font-size: 11px;
+    padding: 5px 0px;
+    border-radius: 5px;
+    position: absolute;
+    width: 53px;
+    top: -30px;
+    left: -12px;
+    transition: $transition-speed;
+    &::first-letter {
+        text-transform: capitalize;
+    }
+  }
+  &:hover .content {
+     opacity: 1;
+  }
+}

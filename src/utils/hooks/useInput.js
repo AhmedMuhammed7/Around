@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Input from '../../components/Global/Input/Input'
+import Input from '../../components/Input/Input'
 import useValidation from './useValidation'
 
-const useInput = ({ type, label, required, category, confirmPassword, model }) => {
+export const useInput = ({ type, label, required, category, confirmPassword, model }) => {
   const [value, setValue] = useState('')
   const [valid, feedback] = useValidation(
     category || 'un-categorized',
@@ -24,5 +24,3 @@ const useInput = ({ type, label, required, category, confirmPassword, model }) =
 
   return [value, valid, input]
 }
-
-export default useInput

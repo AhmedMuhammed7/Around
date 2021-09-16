@@ -1,0 +1,8 @@
+@import '../../css/scss/abstracts/index';
+nav {
+  height: $navbar-height !important;
+  box-shadow: 0 0 10px -5px $color-black;
+  z-index: 20000 !important;
+  background-color: $color-white !important;
+  
+}

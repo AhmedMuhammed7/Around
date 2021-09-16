@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import SignupForm from '../../components/UnAthenticated/SignupForm/SignupForm'
-import Loading from '../../components/Global/Loading/Loading'
-import Footer from '../../components/UnAthenticated/Footer/Footer'
+import SignupForm from '../../components/SignupForm/SignupForm'
+import Loading from '../../components/Loading/Loading'
+import { Footer } from '../../components/Footer/Footer'
 import { Redirect } from 'react-router-dom'
 import useDocumentTitle from '../../utils/hooks/useDocumentTitle'
 const Signup = ({ isLoading, redirect }) => {

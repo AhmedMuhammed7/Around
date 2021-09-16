@@ -4,7 +4,7 @@ import {
   ADD_TO_CART_SUCCESS,
 } from '../actions/actionTypes'
 
-const cart = (state = [], { type, data }) => {
+export const cart = (state = [], { type, data }) => {
   switch (type) {
   case GET_USER_CART_SUCCESS:
     return data
@@ -16,4 +16,3 @@ const cart = (state = [], { type, data }) => {
     return state
   }
 }
-export default cart

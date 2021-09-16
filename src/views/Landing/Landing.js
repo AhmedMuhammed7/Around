@@ -1,12 +1,15 @@
 import React from 'react'
 import useDocumentTitle from '../../utils/hooks/useDocumentTitle'
-import Header from '../../components/UnAthenticated/Header/Header'
+import {Header} from '../../components/Header/Header'
+import { LandingHeader } from '../../components/Header/LandingHeader'
 
 const Landing = () => {
   useDocumentTitle('Landing')
   return (
     <>
-      <Header />
+      <Header >
+        <LandingHeader/>
+      </Header>
     </>
   )
 }

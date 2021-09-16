@@ -1,0 +1,15 @@
+@import '../../../css/scss/abstracts/index';
+.active-product {
+    z-index: 1000 !important;
+    .text {
+        @include responsive(sm) {
+            order: 2 !important;
+        }
+        p {
+            font-size: 18px;
+            @include responsive(md) {
+                font-size: 15px;
+            }
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import Checkbox from '../../components/Global/Checkbox/Checkbox'
+import Checkbox from '../../components/Checkbox/Checkbox'
 const useCheckbox = ({label}) => {
   const [value, setValue] = useState(false)
   const checkbox = (

@@ -1,0 +1,11 @@
+@import '../../../css/scss/abstracts/variables.scss';
+.add-to-favourite {
+  color: $color-text-3;
+  position: relative;
+  &:hover {
+    color: $color-brand-purple;
+  }
+}
+.active {
+  color: $color-brand-purple;
+}

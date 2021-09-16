@@ -1,0 +1,31 @@
+@import "../../css/scss/abstracts/index";
+header.user-header {
+  background-image: linear-gradient(
+    to right,
+    $color-brand-purple 0%,
+    $color-brand-purple 30%,
+    #6a9bf4 100%
+  );
+  height: 700px;
+
+  @include responsive(sm) {
+    height: 1100px;
+  }
+  div {
+    z-index: 10000;
+    position: relative;
+    p {
+      @include responsive(sm) {
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+  .curved {
+    position: absolute;
+    width: 100%;
+    bottom: 0 !important;
+    z-index: 0 !important;
+  }
+}

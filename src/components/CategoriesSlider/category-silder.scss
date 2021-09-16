@@ -1,0 +1,15 @@
+@import '../../css/scss/abstracts/index';
+.categories-slider {
+    @include responsive(xxl) {
+        margin-top: -100px !important;
+    }
+    @include responsive(xl) {
+        margin-top: -100px !important;
+    }
+     @include responsive(lg) {
+        margin-top: -100px !important;
+    }
+    @include responsive(md) {
+        margin: 0 !important;
+    }
+}
