@@ -37,3 +37,5 @@ export const isIdentical = (valueOne, valueTwo) => valueOne === valueTwo
 
 export const isLength = (value, min, max) =>
   value.length <= (max || 1000) && value.length >= (min || 0)
+
+export const isInRange = (value, min, max) => value >= min && value <= max

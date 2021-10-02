@@ -1,24 +1,18 @@
 import React from 'react'
-import { Person } from 'react-bootstrap-icons'
-import IconLink from '../../components/IconLink/IconLink'
 import Navbar from '../../components/Navbar/Navbar'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Landing from '../Landing/Landing'
 import Signin from '../Signin/Signin'
 import Signup from '../Signup/Signup'
+import Icon from '../../components/Icon/Icon'
+import { Person } from 'react-bootstrap-icons'
 
 const UnAuthenticated = () => {
+  const navIcons = <Icon icon={<Person size={23}/>} path="/signin" label="Sign in" />
   return (
     <>
       <Router>
-        <Navbar>
-          <IconLink
-            path="/signin"
-            icon={<Person size={25} />}
-            key="/signin"
-            label="Sign in"
-          />
-        </Navbar>
+        <Navbar navIcons={navIcons}/>
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/signup" component={Signup} />

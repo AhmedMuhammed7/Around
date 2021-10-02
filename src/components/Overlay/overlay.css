@@ -1,0 +1,45 @@
+.overlay {
+  z-index: 300043540;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.overlay .transition-elm {
+  width: 352px;
+  left: 0;
+  background-color: #fff !important;
+}
+
+@media (max-width: 576px) {
+  .overlay .transition-elm {
+    width: 100%  !important;
+  }
+}
+
+.inLeft {
+  animation: getInLeft 0.3s;
+  left: 0;
+}
+
+.inRight {
+  animation: getInRight 0.3s;
+  right: 0;
+}
+
+@keyframes getInLeft {
+  0% {
+    left: -352px;
+  }
+  100% {
+    left: 0 !important;
+  }
+}
+
+@keyframes getInRight {
+  0% {
+    right: -352px;
+  }
+  100% {
+    right: 0 !important;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { CloseButton } from 'react-bootstrap'
+import { X } from 'react-bootstrap-icons'
 
 const AlertMessage = ({
   label,
@@ -23,7 +23,7 @@ const AlertMessage = ({
           data-bs-dismiss="alert"
           aria-label="Close"
           onClick={() => setShow(false)}
-        ><CloseButton/></button>
+        ><X/></button>
       )}
     </div>
   )

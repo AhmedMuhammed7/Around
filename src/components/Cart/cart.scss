@@ -1,15 +1,28 @@
+@import '../../css/scss/abstracts/index';
 $cart-width: 352px;
 .cart {
-  border: 1px solid red;
-  width: $cart-width;
-  z-index: 10000;
+  z-index: 30000;
+  background-color: rgba(#000, 0.4);
+  overflow: hidden;
+  .cart-elm {
+    width: $cart-width;
+    right: 0;
+    @include responsive(xs) {
+      width: 100%  !important;
+    }
+  }
+}
+.in {
+  animation: getIn 0.3s;
 }
 
-@keyframes slideLeft {
+
+@keyframes getIn {
   0% {
-    right: $cart-width * -1;
+    right: -$cart-width;
   }
   100% {
-    right: 0;
+    right: 0 !important;
   }
 }
+

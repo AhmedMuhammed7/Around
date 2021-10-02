@@ -1,6 +1,7 @@
 import React from 'react'
 import './product-mini-card.scss'
 import PropTypes from 'prop-types'
+import { ChevronRight } from 'react-bootstrap-icons'
 
 const ProductMiniCard = ({ name, image, activeCard, setActiveCard, id }) => {
   
@@ -16,9 +17,9 @@ const ProductMiniCard = ({ name, image, activeCard, setActiveCard, id }) => {
           <img src={image} alt="product" width="60" height="60" />
         </div>
 
-        <p className="px-2 m-0 ">{name}</p>
+        <p className="ps-2 m-0 ">{name}</p>
         <div className="icon fs-5 p-1">
-          <i className="fa fa-angle-right"></i>
+          <ChevronRight size={16}/>
         </div>
       </div>
     </a>

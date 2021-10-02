@@ -27,14 +27,14 @@ const ProductsShow = ({ headerProducts }) => {
   return (
     <Container>
       <Row>
-        <Col md={5} lg={3} className="d-flex justify-content-center">
+        <Col md={12} lg={3} className="d-flex justify-content-center">
           <ProductsList
             products={headerProducts}
             active={active}
             setActive={setActive}
           />
         </Col>
-        <Col md={7} lg={9}>
+        <Col md={12} lg={9}>
           {activeProductElem}
         </Col>
       </Row>

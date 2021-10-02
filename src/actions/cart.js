@@ -9,6 +9,9 @@ import {
   REMOVE_FROM_CART_REQUEST,
   REMOVE_FROM_CART_SUCCESS,
   REMOVE_FROM_CART_FAILURE,
+  UPDATE_CART_AMOUNT_REQUEST,
+  UPDATE_CART_AMOUNT_SUCCESS,
+  UPDATE_CART_AMOUNT_FAILURE,
 } from './actionTypes'
 import { thunkCreator } from '../utils/actions'
 import { accessToken } from '../utils/token'
@@ -37,11 +40,11 @@ export const addToCart = (data, handleStatus) => (dispatch) => {
   )
     .then((res) => res.data.payload)
     .then((data) => {
-      handleStatus(true)
+      if (handleStatus) handleStatus(true)
       dispatch({ type: ADD_TO_CART_SUCCESS, data })
       swal({
         icon: 'success',
-        title : 'Cart updated',
+        title: 'Cart updated',
         timer: 700,
         buttons: false,
         text: 'Added',
@@ -57,8 +60,8 @@ export const removeFromCart = (id, handleStatus) => (dispatch) => {
     headers: { Authorization: 'Bearer ' + accessToken() },
   })
     .then(() => {
-      handleStatus(false)
-      dispatch({ type: REMOVE_FROM_CART_SUCCESS, data : {id} })
+      if (handleStatus) handleStatus(false)
+      dispatch({ type: REMOVE_FROM_CART_SUCCESS, data: { id } })
       swal({
         icon: 'success',
         timer: 700,
@@ -68,4 +71,17 @@ export const removeFromCart = (id, handleStatus) => (dispatch) => {
       })
     })
     .catch((error) => dispatch({ type: REMOVE_FROM_CART_FAILURE, error }))
+}
+
+
+export const updateAmount = (data) => dispatch => {
+  dispatch({ type: UPDATE_CART_AMOUNT_REQUEST })
+
+  return Axios.put(`/carts/${data.id}`,{...data}, {
+    headers: { Authorization: 'Bearer ' + accessToken() },
+  })
+    .then(() => {
+      dispatch({ type: UPDATE_CART_AMOUNT_SUCCESS, data })
+    })
+    .catch((error) => dispatch({ type: UPDATE_CART_AMOUNT_FAILURE, error }))
 }

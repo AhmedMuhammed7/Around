@@ -1,18 +1,8 @@
 import React, { useEffect } from 'react'
 import { string, func, bool } from 'prop-types'
-import IconLink from '../../components/IconLink/IconLink'
-import { Person, Bag } from 'react-bootstrap-icons'
-import Home from '../Home/Home'
-import Navbar from '../../components/Navbar/Navbar'
 import Loading from '../../components/Loading/Loading'
-import {
-  Redirect,
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { navLinks } from '../../utils/constants'
+import { AuthenticatedRouter } from './Router'
 import { getProducts } from '../../actions/products'
 import { getCategories } from '../../actions/categories'
 import { getReviews } from '../../actions/reviews'
@@ -41,16 +31,9 @@ const Authenticated = ({
   return loading ? (
     <Loading />
   ) : (
-    <Router>
-      {redirect && <Redirect to={redirect} />}
-      <Navbar navLinks={navLinks}>
-        <IconLink path="/profile" icon={<Person size={25} />} />
-        <IconLink path="/cart" icon={<Bag size={23} />} />
-      </Navbar>
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </Router>
+    <AuthenticatedRouter
+      redirect={redirect}
+    />
   )
 }
 
@@ -71,7 +54,7 @@ Authenticated.propTypes = {
   getCart: func,
   getColors: func,
   getSizes: func,
-  searchMode : bool,
+  searchMode: bool,
 }
 
 export default connect(mapStateToProps, {

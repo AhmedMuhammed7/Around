@@ -8,7 +8,7 @@ header.user-header {
   );
   height: 700px;
 
-  @include responsive(sm) {
+  @include responsive(md) {
     height: 1100px;
   }
   div {

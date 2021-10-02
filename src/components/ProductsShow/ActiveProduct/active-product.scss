@@ -2,7 +2,7 @@
 .active-product {
     z-index: 1000 !important;
     .text {
-        @include responsive(sm) {
+        @include responsive(md) {
             order: 2 !important;
         }
         p {

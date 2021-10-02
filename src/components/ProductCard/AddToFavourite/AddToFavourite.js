@@ -29,7 +29,7 @@ const AddToFavouriteBtn = () => {
 }
 
 AddToFavouriteBtn.propTypes = {
-  addToFavourite: func.isRequired,
+  addToFavourite: func,
 }
 
 export default AddToFavouriteBtn

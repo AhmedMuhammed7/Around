@@ -21,7 +21,7 @@ const ReviewsSlider = ({ reviews }) => {
     </div>
   )
   return (
-    <Container className="my-2">
+    <Container className="mt-5 border border-light mb-2">
       <h2 className="text-center mt-5 color-text-3">Reviews</h2>
       <GlobalSlider elements={reviews} elementsMapping={reviewsMapping} />
     </Container>

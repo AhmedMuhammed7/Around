@@ -2,13 +2,11 @@ import React from 'react'
 import {bool, func} from 'prop-types'
 import './toggle-button.scss'
 
-const ToggleButton = ({open , setOpen}) => {
-  const buttonClassName = `toggle-button position-absolute${
-    open ? ' toggled' : ''
-  }`
+const ToggleButton = ({sidebarMode , setSidebarMode}) => {
+  const buttonClassName = `toggle-button${sidebarMode ? ' toggled' : ''}`
     
   
-  const handleClick = () => setOpen(!open)
+  const handleClick = () => setSidebarMode(!sidebarMode)
   return (
     <button className={buttonClassName} onClick={handleClick}>
       <div>
@@ -21,8 +19,8 @@ const ToggleButton = ({open , setOpen}) => {
 }
 
 ToggleButton.propTypes = {
-  open : bool.isRequired,
-  setOpen : func.isRequired
+  sidebarMode: bool.isRequired,
+  setSidebarMode: func.isRequired,
 }
 
 export default ToggleButton

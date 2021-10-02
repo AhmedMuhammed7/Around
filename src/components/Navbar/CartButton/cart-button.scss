@@ -1,0 +1,13 @@
+@import "../../../css/scss/abstracts/_variables";
+.cart-button {
+  div {
+    top: 34%;
+    left: 19%;
+    width: 23px;
+    color: $color-brand-purple;
+    font : {
+      size: 11px;
+      weight: bold;
+    }
+  }
+}

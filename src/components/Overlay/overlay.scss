@@ -1,0 +1,29 @@
+@import '../../css/scss/abstracts/index';
+$transition-elm-width: 352px;
+.overlay {
+  z-index: 300043540;
+  background-color: rgba(#000, 0.4);
+  overflow: hidden;
+  .transition-elm {
+    width: $transition-elm-width;
+    right: 0;
+    background-color: $color-white !important;
+    @include responsive(xs) {
+      width: 100%  !important;
+    }
+  }
+}
+.in {
+  animation: getIn 0.3s;
+}
+
+
+@keyframes getIn {
+  0% {
+    right: -$transition-elm-width;
+  }
+  100% {
+    right: 0 !important;
+  }
+}
+

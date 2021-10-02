@@ -1,19 +1,16 @@
-@import '../../../css/scss/abstracts/index';
+@import "../../../css/scss/abstracts/index";
 .toggle-button {
   width: 25px;
-  height: 20px;
-  top: 20px;
-  right: 20px;
+  top: 30px;
+  right: 60px;
+  position: absolute;
+  display: none;
   > div {
     overflow: hidden;
     z-index: 0 !important;
-    display: none;
     position: relative;
     width: 25px;
     height: 20px;
-    @include responsive(sm) {
-      display: block !important;
-    }
     span {
       transition: $transition-speed;
       display: block;
@@ -27,11 +24,14 @@
       top: 0;
     }
     span:nth-of-type(2) {
-      top: 49%;
+      top: 46%;
     }
     span:nth-of-type(3) {
       bottom: 0;
     }
+  }
+  @include responsive(sm) {
+    display: block !important;
   }
 }
 .toggle-button.toggled {

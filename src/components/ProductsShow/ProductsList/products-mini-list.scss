@@ -1,0 +1,19 @@
+@import "../../../css/scss/abstracts/index";
+.products-mini-list {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  .product-elm {
+    width: 100%;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include responsive(md) {
+      width: 48%;
+    }
+    @include responsive(sm) {
+      width: 100%;
+    }
+  }
+}

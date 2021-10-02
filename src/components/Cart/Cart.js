@@ -1,24 +1,35 @@
-import React, {useEffect} from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import './cart.scss'
-import { bool, func } from 'prop-types'
+import { bool, func, arrayOf, object } from 'prop-types'
+import { CartList } from './CartList/CartList'
+import { Checkout } from './Checkout/Checkout'
+import { MenuHeader } from '../MenuHeader/MenuHeader'
 
-const Cart = ({setCartMode, cartMode}) => {
-  useEffect(()=> {
-    //document.body.style.overflow = cartMode ? 'hidden' : 'visible'
-  },[cartMode])
+
+const Cart = ({ setCartMode, cart }) => {
+
+  const emptyCart = () =>
+    cart.length < 1 && (
+      <div className="p-3 text-center color-text-1 fw-bold">Empty cart</div>
+    )
   return (
-    <div
-      className="cart position-absolute top-0 end-0"
-      style={{ height: window.innerHeight + 'px'}}
-      onClick={()=> setCartMode(false)}
-    >kkkkk
-    </div>
+    <>
+      <MenuHeader cancelMode={setCartMode} label="you cart"/>
+      {emptyCart()}
+      <CartList products={cart} />
+      <div className="position-absolute bottom-0 start-0 w-100">
+        <Checkout cart={cart} setCartMode={setCartMode} />
+      </div>
+    </>
   )
 }
+const mapStateToProps = (state) => ({ cart: state.cart })
 
-Cart.propTypes= {
-  setCartMode : func,
-  cartMode : bool
+export default connect(mapStateToProps)(Cart)
+
+Cart.propTypes = {
+  setCartMode: func,
+  cartMode: bool,
+  cart: arrayOf(object),
 }
-
-export default Cart

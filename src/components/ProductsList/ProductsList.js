@@ -32,7 +32,7 @@ const ProductsList = ({
     </div>
   )
   const productsList = products.map((product) => (
-    <Col key={product.id} md={3} sm={6}>
+    <Col key={product.id} lg={3} md={4} sm={6}>
       <MemoizedProductCard
         name={product.pro_name}
         image={product.mainImage}

@@ -1,0 +1,11 @@
+@import "../../css/scss/abstracts/_variables";
+.menu-header {
+  box-shadow: 0 0 7px -5px $color-black;
+  font : {
+    size: 1.125rem;
+    weight: 600;
+  }
+  span::first-letter {
+    text-transform: capitalize;
+  }
+}

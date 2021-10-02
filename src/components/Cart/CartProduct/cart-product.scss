@@ -1,0 +1,29 @@
+@import "../../../css/scss/abstracts/_variables";
+.cart-product {
+
+  .image {
+    width: 25%;
+  }
+  .info {
+    position: relative;
+    p.product-name {
+      font : {
+        size: 14px;
+        weight: 500;
+      }
+    }
+    span {
+      font-size: 14px;
+    }
+    &::after {
+      content: "";
+      width: 1px;
+      height: 30px;
+      display: block;
+      background-color: rgba($color-text-1, 0.2);
+      position: absolute;
+      top: 34%;
+      right: 8px;
+    }
+  }
+}

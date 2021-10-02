@@ -1,64 +1,45 @@
-/*eslint-disable */
-/*import React from "react";
-
-const Page = () => {
-  const [value, setValue] = React.useState("");
-  const handleValue = (e) => {
-     const re = /^[0-9,.,-]+$/
-     const isMoreThanMinimum = (number) => number >= -90;
-     const isLessThanMaximum = number <= 90
-    if (inputVal === "-") {
-      setValue(inputVal);
-    } else {
-      if (
-        (re.test(inputVal) &&
-          inputVal >= -90 &&
-          inputVal <= 90) ||
-        inputVal === ""
-      ) {
-        setValue(inputVal);
-      }
-    }
-  };
+import React, { useState } from 'react'
+import { Container, Button, Alert } from 'react-bootstrap'
+import { CSSTransition } from 'react-transition-group'
+import './style.css'
+export function Example() {
+  const [showButton, setShowButton] = useState(true)
+  const [showMessage, setShowMessage] = useState(false)
   return (
-    <div>
-      <input type="text" value={value} onChange={handleValue} />
-      <div>{value}</div>
-    </div>
-  );
-};
-
-export default Page;*/
-import React from "react";
-
-const Page = () => {
-  const [value, setValue] = React.useState("");
-  const handleLangtiude = (e) => {
-    const inputVal = e.target.value;
-    const rgex = /^[0-9,.,-]+$/;
-    const isMoreThanMinimum = (number) => number >= -90;
-    const isLessThanMaximum = (number) => number <= 90;
-
-    if (inputVal === "-" || inputVal === ".") handleChange(e);
-    else {
-      if (
-        (rgex.test(inputVal) &&
-          isMoreThanMinimum(inputVal) &&
-          isLessThanMaximum(inputVal)) ||
-        inputVal === ""
-      ) {
-        formik.handleChange(e);
-      }
-    }
-
-   
-  };
-  return (
-    <div>
-      <input type="text" value={value} onChange={handleValue} />
-      <div>{value}</div>
-    </div>
-  );
-};
-
-export default Page;
+    <Container style={{ paddingTop: '2rem' }}>
+      {showButton && (
+        <Button
+          onClick={() => setShowMessage(true)}
+          size="lg"
+        >
+          Show Message
+        </Button>
+      )}
+      <CSSTransition
+        in={showMessage}
+        timeout={300}
+        classNames="alert"
+        unmountOnExit
+        onEnter={() => setShowButton(false)}
+        onExited={() => setShowButton(true)}
+      >
+        <Alert
+          variant="primary"
+          dismissible
+          onClose={() => setShowMessage(false)}
+        >
+          <Alert.Heading>
+            Animated alert message
+          </Alert.Heading>
+          <p>
+            This alert message is being transitioned in and
+            out of the DOM.
+          </p>
+          <Button onClick={() => setShowMessage(false)}>
+            Close
+          </Button>
+        </Alert>
+      </CSSTransition>
+    </Container>
+  )
+}

@@ -9,7 +9,7 @@ export const Button = ({ type, label, className, path, onClicking }) => {
       type={type || 'button'}
       onClick={onClicking}
     >
-      {path ? <Link to={`/${path}`}>{label}</Link> : label}
+      {path ? <Link to={`/${path}`} className="text-light">{label}</Link> : label}
     </button>
   )
 }

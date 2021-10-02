@@ -8,10 +8,11 @@ export const ActiveProduct = ({ price, name, description, image, }) => {
   return (
     <div className="active-product position-relative">
       <Container>
-        <Row>
+        <Row className="justify-content-center">
           <Col
-            md={6}
-            className="text d-flex justify-content-center flex-column text-light"
+            md={12}
+            lg={6}
+            className="text d-flex justify-content-center flex-column text-light  text-md-center text-lg-start"
           >
             <h1 className="fw-bold">{name}</h1>
             <p>{description}</p>
@@ -21,7 +22,7 @@ export const ActiveProduct = ({ price, name, description, image, }) => {
               </Link>
             </div>
           </Col>
-          <Col md={6}>
+          <Col md={7} lg={6} className="mb-3">
             <img src={image} className="w-100" />
           </Col>
         </Row>

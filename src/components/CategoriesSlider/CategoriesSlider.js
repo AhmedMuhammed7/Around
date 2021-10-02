@@ -34,7 +34,7 @@ const CategoriesSlider = ({ categories, products }) => {
 }
 
 const mapStateToProps = (state) => ({
-  categories: state.categories,
+  categories: state.categories.slice(0,3),
   products: state.products,
 })
 

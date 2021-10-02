@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import './nav-links.scss'
-import { arrayOf, objectOf, string, bool, func } from 'prop-types'
+import { arrayOf, objectOf, string, func } from 'prop-types'
 import { Link } from 'react-router-dom'
-import NavIcons from '../NavIcons/NavIcons'
 
 
-const NavLinks = ({ links, open, setOpen, setSearchMode }) => {
+
+const NavLinks = ({ links, setSidebarMode }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
-  const handleClick = () => setOpen(false)
+  const handleClick = () => setSidebarMode(false)
   const navLinks = links?.map((link) => (
     <li className="me-5" key={link.path} onClick={handleClick}>
       <Link to={link.path} className="text-capitalize color-text-3">
@@ -16,11 +16,15 @@ const NavLinks = ({ links, open, setOpen, setSearchMode }) => {
       </Link>
     </li>
   ))
-  const navLinksListHeight =
-    windowWidth < 768 ? +open && window.innerHeight + 'px' : 'auto'
+  const navListHeight = () =>
+    windowWidth < 768 ? window.innerHeight + 'px' : 'auto'
+
+  const navListWidth = () => (windowWidth < 768 ? windowWidth + 'px' : 'auto')
 
   useEffect(() => {
-    const handleChange = function() {setWindowWidth(window.innerWidth)}
+    const handleChange = function () {
+      setWindowWidth(window.innerWidth)
+    }
     window.addEventListener('resize', handleChange)
     return () => window.removeEventListener('resize', handleChange)
   }, [windowWidth])
@@ -28,21 +32,16 @@ const NavLinks = ({ links, open, setOpen, setSearchMode }) => {
   return (
     <ul
       className="nav-links d-flex overflow-hidden"
-      style={{ height: navLinksListHeight }}
+      style={{ height: navListHeight(), width: navListWidth() }}
     >
       {navLinks}
-      <li className="d-block d-md-none">
-        <NavIcons status="authenticated" setSearchMode={setSearchMode} />
-      </li>
     </ul>
   )
 }
 
 NavLinks.propTypes = {
   links: arrayOf(objectOf(string)).isRequired,
-  open: bool.isRequired,
-  setOpen: func.isRequired,
-  setSearchMode : func.isRequired,
+  setSidebarMode: func,
 }
 
 export default NavLinks
