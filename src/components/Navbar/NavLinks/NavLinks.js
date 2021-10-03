@@ -31,7 +31,7 @@ const NavLinks = ({ links, setSidebarMode }) => {
 
   return (
     <ul
-      className="nav-links d-flex overflow-hidden"
+      className="nav-links d-flex overflow-hidden w-100 justify-content-md-end"
       style={{ height: navListHeight(), width: navListWidth() }}
     >
       {navLinks}

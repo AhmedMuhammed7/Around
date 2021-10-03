@@ -22,7 +22,7 @@ export const FixedComponents = () => {
         unmountOnExit
         timeout={300}
       >
-        <Overlay setMode={setCartMode}>
+        <Overlay setMode={setCartMode} position="r">
           <Cart setCartMode={setCartMode} />
         </Overlay>
       </CSSTransition>
@@ -32,7 +32,7 @@ export const FixedComponents = () => {
         unmountOnExit
         timeout={300}
       >
-        <Overlay setMode={setSidebarMode} position="left">
+        <Overlay setMode={setSidebarMode} position="l">
           <Sidebar setSidebarMode={setSidebarMode} />
         </Overlay>
       </CSSTransition>

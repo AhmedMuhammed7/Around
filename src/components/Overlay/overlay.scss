@@ -6,19 +6,34 @@ $transition-elm-width: 352px;
   overflow: hidden;
   .transition-elm {
     width: $transition-elm-width;
-    right: 0;
     background-color: $color-white !important;
-    @include responsive(xs) {
+    @media (max-width : $transition-elm-width) {
       width: 100%  !important;
     }
   }
 }
-.in {
-  animation: getIn 0.3s;
+
+.inRight {
+  right: 0;
+  animation: getInRight 0.3s;
+}
+
+.inLeft {
+   left: 0;
+  animation: getInLeft 0.3s;
 }
 
 
-@keyframes getIn {
+@keyframes getInLeft {
+  0% {
+    left: -$transition-elm-width;
+  }
+  100% {
+    left: 0 !important;
+  }
+}
+
+@keyframes getInRight {
   0% {
     right: -$transition-elm-width;
   }
@@ -26,4 +41,3 @@ $transition-elm-width: 352px;
     right: 0 !important;
   }
 }
-

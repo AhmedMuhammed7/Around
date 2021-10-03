@@ -8,15 +8,15 @@ import {
   element,
   func,
   bool,
-  number
+  number,
 } from 'prop-types'
 import './navbar.scss'
 import Logo from './Logo/Logo'
 import NavLinks from './NavLinks/NavLinks'
 import { Container, Row, Col } from 'react-bootstrap'
-import ToggleButton from './ToggleButton/ToggleButton'
-import {CartButton} from './CartButton/CartButton'
+import { CartButton } from './CartButton/CartButton'
 import { connect } from 'react-redux'
+import { List } from 'react-bootstrap-icons'
 
 const Navbar = ({
   navLinks,
@@ -24,39 +24,46 @@ const Navbar = ({
   setCartMode,
   cartLength,
   setSidebarMode,
-  sidebarMode,
 }) => {
+  const handleOpenSidebar = () => setSidebarMode(true)
   const linksList = navLinks && (
     <Col
       md={8}
       lg={7}
-      className="d-md-flex d-none align-items-center  justify-content-sm-end overflow-hidden border"
+      className="d-md-flex d-none align-items-center justify-content-center  overflow-hidden"
     >
       <NavLinks links={navLinks} setSidebarMode={setSidebarMode} />
     </Col>
   )
-  const toggleButton = navLinks && (
-    <ToggleButton sidebarMode={sidebarMode} setSidebarMode={setSidebarMode} />
-  )
-  const navIconsClassName = `align-items-center ${
-    navLinks ? 'd-md-flex d-none' : 'd-flex'
-  }`
   const cartButton = navLinks && (
     <CartButton openCart={setCartMode} cartLength={cartLength} />
   )
+  const toggleButton = navLinks && (
+    <Col className="d-flex align-items-center d-md-none order-0 ">
+      <button onClick={handleOpenSidebar}>
+        <List size={28} color="#4a4b65" />
+      </button>
+    </Col>
+  )
+
   return (
     <nav className="fixed-top d-flex align-items-center">
       <Container className="pos">
-        <Row className="flex-nowrap">
-          <Col sm={2} lg={3} className="d-flex align-items-center">
+        <Row className="flex-nowrap ">
+          <Col
+            className="d-flex align-items-center order-1 order-md-0 justify-content-center justify-content-md-start"
+          >
             <Logo />
           </Col>
-          {toggleButton}
           {linksList}
-          <Col md={2} className={navIconsClassName}>
+          <Col
+           
+            className="d-flex align-items-center order-2 justify-content-end"
+          >
             {navIcons}
             {cartButton}
           </Col>
+          {toggleButton}
         </Row>
       </Container>
     </nav>
@@ -75,6 +82,5 @@ Navbar.propTypes = {
   setSidebarMode: func,
   sidebarMode: bool,
 }
-
 
 export default connect(mapStateToProps)(Navbar)
